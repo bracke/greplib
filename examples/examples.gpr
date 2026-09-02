@@ -1,0 +1,15 @@
+with "../greplib";
+
+project Examples is
+   for Source_Dirs use (".");
+   for Object_Dir use "obj";
+   for Exec_Dir use "bin";
+   for Main use
+     ("readme_demo.adb", "search_string.adb", "search_file.adb", "search_directory.adb",
+      "count_records.adb", "collect_matches.adb", "cancel_search.adb", "custom_path_filters.adb",
+      "concurrent_search.adb");
+
+   package Compiler is
+      for Default_Switches ("Ada") use ("-gnat2022", "-gnata", "-gnatwe", "-gnatyM120");
+   end Compiler;
+end Examples;

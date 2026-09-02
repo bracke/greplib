@@ -1,0 +1,30 @@
+name = "greplib_tool"
+description = "Ada tooling for greplib build, verification, and packaging"
+version = "0.1.0-dev"
+licenses = "MIT"
+authors = ["Bent Bracke"]
+maintainers = ["Bent Bracke <bent@bracke.dk>"]
+maintainers-logins = ["bracke"]
+executables = ["greplib_tool"]
+project-files = ["greplib_tool.gpr"]
+
+[[depends-on]]
+project_tools = "*"
+
+[[depends-on]]
+tarlib = "*"
+
+[[depends-on]]
+hostkit = "*"
+
+[[pins]]
+project_tools = { path = "../../project_tools" }
+
+[[pins]]
+tarlib = { path = "../../tarlib" }
+
+[[pins]]
+hostkit = { path = "../../hostkit" }
+
+[build-profiles]
+"*" = "development"

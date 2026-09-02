@@ -1,0 +1,14 @@
+name = "greplib"
+description = "Reusable grep-like search library for Ada"
+version = "0.1.0-dev"
+licenses = "MIT"
+authors = ["Bent Bracke"]
+maintainers = ["Bent Bracke <bent@bracke.dk>"]
+maintainers-logins = ["bracke"]
+project-files = ["greplib.gpr"]
+
+[[depends-on]]
+regexp = "*"
+
+[[pins]]
+regexp = { path = "../regexp" }
