@@ -1200,7 +1200,8 @@ package body Greplib.Files is
 
       Capture_Start_Metadata;
       begin
-         Ada.Streams.Stream_IO.Open (File, Ada.Streams.Stream_IO.In_File, Greplib.Paths.Image (Path));
+         Ada.Streams.Stream_IO.Open (File, Ada.Streams.Stream_IO.In_File, Greplib.Paths.Image (Path),
+                                     Form => "shared=no");
       exception
          when E : others =>
             declare

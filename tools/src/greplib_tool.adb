@@ -244,7 +244,7 @@ procedure Greplib_Tool is
          Ada.Directories.Create_Directory ("dist");
       end if;
 
-      Ada.Text_IO.Create (Manifest, Ada.Text_IO.Out_File, "dist/source-manifest.txt");
+      Ada.Text_IO.Create (Manifest, Ada.Text_IO.Out_File, "dist/source-manifest.txt", Form => "shared=no");
       Ada.Text_IO.Put_Line (Manifest, "greplib source manifest");
       Ada.Text_IO.Put_Line (Manifest, "format: deterministic relative paths");
       for Path of Files loop
@@ -273,7 +273,7 @@ procedure Greplib_Tool is
       Check_File ("dist/source-manifest.txt");
       Check_File ("dist/greplib-0.1.0-dev.tar");
 
-      Ada.Text_IO.Open (Manifest, Ada.Text_IO.In_File, "dist/source-manifest.txt");
+      Ada.Text_IO.Open (Manifest, Ada.Text_IO.In_File, "dist/source-manifest.txt", Form => "shared=no");
       while not Ada.Text_IO.End_Of_File (Manifest) loop
          declare
             Line : constant String := Ada.Text_IO.Get_Line (Manifest);
@@ -319,8 +319,8 @@ procedure Greplib_Tool is
       In_Pin_Section : Boolean := False;
       Lines_Written : Natural := 0;
    begin
-      Ada.Text_IO.Open (Source, Ada.Text_IO.In_File, Source_Path);
-      Ada.Text_IO.Create (Target, Ada.Text_IO.Out_File, Target_Path);
+      Ada.Text_IO.Open (Source, Ada.Text_IO.In_File, Source_Path, Form => "shared=no");
+      Ada.Text_IO.Create (Target, Ada.Text_IO.Out_File, Target_Path, Form => "shared=no");
 
       while not Ada.Text_IO.End_Of_File (Source) loop
          declare
